@@ -25,10 +25,11 @@ class UsersCreateRequest extends Request
     {
         return [
             'name' => 'required',
-            'email' => 'required',
+            'photo_id' => 'required',
+            'email' => 'required|unique:users',
             'role_id' => 'required',
             'is_active' => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ];
     }
 }

@@ -4,7 +4,7 @@
 @section('content')
     <h1>Create an User</h1>
 
-    {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store']) !!}
+    {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store', 'files'=>true]) !!}
     {{csrf_field()}}
         <div class="row form-group">
             <div class="col-lg-1">
@@ -48,10 +48,11 @@
 
         <div class="row form-group">
             <div class="col-lg-1">
-              {!! Form::label('file', 'Photo  ') !!}
+              {!! Form::label('photo_id', 'Photo  ') !!}
             </div>
             <div class="col-lg-8">
-             {!! Form::file('file', null, ['class' => 'form-control']) !!}
+            <?php //echo Form::file('photo_id') ?>
+             {!! Form::file('photo_id', ['class' => 'form-control']) !!}
             </div>
         </div>
 
