@@ -23,7 +23,7 @@
             @if($users)
                 @foreach($users as $user)
                     {{--<tr onclick="document.location='users/'+ {{$user->id}} + '/edit' " style="cursor:pointer">--}}
-                    <tr onclick="location.href='{{route('admin.users.edit',['id'=>$user->id])}}'" class="pointer">
+                    <tr style="cursor:pointer" onclick="location.href='{{route('admin.users.edit',['id'=>$user->id])}}'" class="pointer">
                         <td>{{$user->id}}</td>
                         <td><img height="20px" src="{{$user->photo ? asset($user->photo->file) : 'http://placehold.it/400x400'}}"></td>
                         <td>

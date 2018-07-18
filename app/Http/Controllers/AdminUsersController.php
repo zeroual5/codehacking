@@ -53,7 +53,7 @@ class AdminUsersController extends Controller
 
             $input['photo_id'] = $photo->id;
         }
-        $input['password'] = bcrypt($request->password);
+//        $input['password'] = bcrypt($request->password);
 
         User::create($input);
         return redirect('/admin/users');
@@ -103,7 +103,7 @@ class AdminUsersController extends Controller
 
         if(trim($request->password)){
             $input = $request->all();
-            $input['password'] = bcrypt($request->password);
+//            $input['password'] = bcrypt($request->password);
         }else{
             $input = $request->except('password');
         }
