@@ -1,0 +1,35 @@
+[33mcommit 8de3e17a94aabce9868fd43aa067c560e7c987bc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: reda zeroual <abdehak.russia2@gmail.com>
+Date:   Wed Jul 18 07:13:58 2018 +0100
+
+    users section working 100 percent - except security
+
+[33mcommit 58008f998aaf1a574a3d7b206b6e8d7f3574f743[m
+Author: reda zeroual <abdehak.russia2@gmail.com>
+Date:   Wed Jul 18 06:29:07 2018 +0100
+
+    my add
+
+[33mcommit ee2acb0deb108e3af056fc0320cd69c3cffd20a3[m
+Author: reda zeroual <abdehak.russia2@gmail.com>
+Date:   Tue Jul 17 16:05:40 2018 +0100
+
+    users with photos working
+
+[33mcommit 323e4c3b81da8d6a5a49b09f9a4f1283fbbbb8e3[m
+Author: reda zeroual <abdehak.russia2@gmail.com>
+Date:   Tue Jul 17 09:52:38 2018 +0100
+
+    users page working without photos
+
+[33mcommit d70ed38d1dd9d603577a7efcbee0f54cd2054fca[m
+Author: reda zeroual <abdehak.russia2@gmail.com>
+Date:   Mon Jul 16 22:50:20 2018 +0100
+
+    admin master  pase setup
+
+[33mcommit 64593832fe7c26af0b96bb9599002f1862b8bfc3[m
+Author: reda zeroual <abdehak.russia2@gmail.com>
+Date:   Mon Jul 16 13:42:54 2018 +0100
+
+    my first commit - admin views created
