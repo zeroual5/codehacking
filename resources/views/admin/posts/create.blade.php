@@ -28,7 +28,7 @@
                      {!! Form::label('category_id', 'Category  ') !!}
                     </div>
                     <div class="col-lg-8">
-                        {!! Form::select('category_id', ['' => 'Choose category', 1 => 'cat'], '',['class' => 'form-control']) !!}
+                        {!! Form::select('category_id', ['' => 'Choose category'] + $categories, '',['class' => 'form-control']) !!}
                     </div>
                 </div>
 
@@ -46,5 +46,5 @@
                 </div>
             {!! Form::close() !!}
 
-    @include('Includes.DisplayErrors');
+    @include('Includes.DisplayErrors')
 @endsection
