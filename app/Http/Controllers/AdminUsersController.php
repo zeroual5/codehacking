@@ -10,9 +10,18 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use PhpParser\Node\Scalar\String_;
 
 class AdminUsersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -127,6 +136,13 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $currentUserId = Auth::user()->id;
+        $user = User::findOrFail($id);
+        if($user->id != $currentUserId){
+            unlink(public_path($user->photo->file));
+            $user->delete();
+            Session::flash('DangerAlert','The user has been Deleted');
+        }
+        return redirect('/admin/users');
     }
 }
