@@ -21,12 +21,12 @@ Route::get('/home', 'HomeController@index');
 
 //Route::group(['middleware' => 'admin'], function (){
     Route::resource('/admin/users', 'AdminUsersController');
-    Route::resource('/admin/posts', 'AdminPostsController');
     Route::resource('/admin/categories', 'AdminCategoriesController');
 //});
 
 //Route::group(['middleware' => 'auth'], function (){
     Route::resource('/admin/posts', 'AdminPostsController');
+    Route::resource('/admin/media', 'AdminMediasController');
     Route::get('/admin', function (){
         return view('admin.index');
     })->name('admin');
