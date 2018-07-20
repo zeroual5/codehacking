@@ -82,8 +82,10 @@
          {!! Form::close() !!}
      </div>
  </div>
-<div class="row">
 
+<div class="row">
+    @include('Includes.DisplayErrors')
+</div>
 
 
     <!-- Modal -->
@@ -97,30 +99,25 @@
                     <h4 class="modal-title">Deleting User</h4>
                 </div>
                 <div class="modal-body">
-                    <span>Are you sure that you want delete this user ??</span>
+
+                    <!-- Form for Delete User -->
+                    {!! Form::open(['method'=> 'DELETE', 'action'=>['AdminUsersController@destroy', $user->id], 'id'=>'DeletingForm']) !!}
+                        <span>Are you sure that you want delete this user ??</span>
+                    {!! Form::close() !!}
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-danger" href="javascript:document.getElementById('DeletingForm').submit();">Delete</a>
                     {{--<a href="javascript:document.getElementById('DeletingForm').submit();">--}}
-                        {{--<button type="button" class="btn btn-danger">Delete</button>--}}
+                    {{--<button type="button" class="btn btn-danger">Delete</button>--}}
                     {{--</a>--}}
                     {{--{!! Form::open(['method'=> 'DELETE', 'action'=>['AdminUsersController@destroy', $user->id], 'id'=>'DeletingForm']) !!}--}}
-                        {{--{!! Form::submit('delete', ['class' => 'btn btn-danger']) !!}--}}
+                    {{--{!! Form::submit('delete', ['class' => 'btn btn-danger']) !!}--}}
                     {{--{!! Form::close() !!}--}}
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Form for Delete User -->
-    {!! Form::open(['method'=> 'DELETE', 'action'=>['AdminUsersController@destroy', $user->id], 'id'=>'DeletingForm']) !!}
-
-    {!! Form::close() !!}
-
-    @include('Includes.DisplayErrors')
-</div>
-
-
 
 @endsection

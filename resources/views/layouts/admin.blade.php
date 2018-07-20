@@ -144,11 +144,12 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="{{route('admin.categories.index')}}">All Categories</a>
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                {{--<a href="{{route('admin.categories.create')}}">Create Category</a>--}}
+                                <a href="#" data-toggle="modal" data-target="#myCreateCategoryModal">Create Category</a>
                             </li>
 
                         </ul>
@@ -341,6 +342,11 @@
 
 
 @yield('footer')
+
+<!-- include modals -->
+{{--include create category model--}}
+@include('admin.categories.create')
+<!-- /include modals -->
 
 </body>
 

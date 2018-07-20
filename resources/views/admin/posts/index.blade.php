@@ -12,7 +12,7 @@
                     <th>Title</th>
                     <th>User</th>
                     <th>Category</th>
-                    {{--<th>Content</th>--}}
+                    <th>Content</th>
                     <th>Created</th>
                     <th>Updated</th>
                 </tr>
@@ -24,12 +24,12 @@
                             <td>{{$post->id}}</td>
                             <td><img height="50px" width="50px" src="{{$post->photo ? asset($post->photo->file) : 'http://placehold.it/400x400'}}"></td>
                             <td>
-                                <a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</a>
+                                <a href="{{route('admin.posts.edit', $post->id)}}">{{str_limit($post->title, 20,' ...')}}</a>
                                 {{--{{$post->title}}--}}
                             </td>
                             <td>{{$post->user ? $post->user ->name : 'has no user'}}</td>
                             <td>{{$post->category ? $post->category->name : 'has no category'}}</td>
-                            {{--<td>{{$post->body}}</td>--}}
+                            <td>{{str_limit($post->body, 30, ' ...')}}</td>
                             <td>{{$post->created_at->diffForHumans()}}</td>
                             <td>{{$post->updated_at->diffForHumans()}}</td>
                         </tr>
