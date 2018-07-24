@@ -31,4 +31,10 @@
             </tbody>
         </table>
     </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            {{$photos->render()}}
+        </div>
+    </div>
 @endsection

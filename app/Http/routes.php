@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::auth();
+//Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/posts/{id}', 'HomeController@show')->name('posts.show');
 
 //Route::group(['middleware' => 'admin'], function (){
     Route::resource('/admin/users', 'AdminUsersController');
@@ -27,7 +25,10 @@ Route::get('/home', 'HomeController@index');
 //Route::group(['middleware' => 'auth'], function (){
     Route::resource('/admin/posts', 'AdminPostsController');
     Route::resource('/admin/media', 'AdminMediasController');
+//});
+
+Route::group(['middleware' => 'auth'], function (){
     Route::get('/admin', function (){
         return view('admin.index');
     })->name('admin');
-//});
+});

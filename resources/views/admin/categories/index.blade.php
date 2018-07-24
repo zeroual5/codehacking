@@ -31,6 +31,12 @@
         </table>
     </div>
 
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            {{$categories->render()}}
+        </div>
+    </div>
+
     <!-- include modals -->
     {{--include create category model--}}
     {{--@include('admin.categories.edit')--}}

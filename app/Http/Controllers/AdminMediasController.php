@@ -9,8 +9,14 @@ use App\Http\Requests;
 
 class AdminMediasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
-        $photos = Photo::all();
+//        $photos = Photo::all();
+        $photos = Photo::paginate(10);
         return view('admin.media.index', compact('photos'));
     }
 

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\PostDec;
 
 class AdminPostsController extends Controller
@@ -29,8 +30,9 @@ class AdminPostsController extends Controller
     public function index()
     {
 //        $posts = Post::all();
-        $posts = Auth::user()->posts->all();
-        return view('admin.posts.index', compact('posts'));
+//        $posts = Auth::user()->posts->all();
+        $posts = Auth::user()->posts()->paginate(10);
+        return view('admin.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -40,7 +42,7 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        $categories = Category::lists('name', 'id')->all();
+        $categories = Category::pluck('name', 'id')->all();
         return view('admin.posts.create',compact('categories'));
     }
 
@@ -52,6 +54,7 @@ class AdminPostsController extends Controller
      */
     public function store(PostsCreateRequest $request)
     {
+
         $input = $request->all();
         $currentUser = Auth::user();
 //        $input['user_id'] = $currentUser->id;
@@ -86,7 +89,7 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        $categories = Category::lists('name', 'id')->all();
+        $categories = Category::pluck('name', 'id')->all();
 
         return view('admin.posts.edit', compact('post','categories'));
     }
@@ -122,7 +125,9 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-        unlink(public_path($post->photo->file));
+        if($post->photo){
+            unlink(public_path($post->photo->file));
+        }
         $post->delete();
         return redirect('/admin/posts');
     }
